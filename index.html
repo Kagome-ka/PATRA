@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecoprint Artisan – Toko Online</title>
+    <meta name="description"
+        content="Toko online produk ecoprint handmade: scarf, tote bag, pouch. Bahan alami, motif daun & bunga." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f7f7f5;
+            --surface: #ffffff;
+            --ink: #1f2937;
+            --muted: #6b7280;
+            --brand: #2f855a;
+            --brand-2: #4caf50;
+            --accent: #f59e0b;
+            --ring: 0 0 0 3px rgba(47, 133, 90, .2);
+            --radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        /* Layout */
+        .container {
+            width: min(1100px, 92%);
+            margin-inline: auto
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(1.2) blur(10px);
+            background: rgba(247, 247, 245, .7);
+            border-bottom: 1px solid #eaeaea
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #14532d, #16a34a);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(20, 83, 45, .25)
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border-radius: 10px;
+            background: conic-gradient(from 45deg, #d1fae5, #ecfccb, #fef3c7, #d1fae5)
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            margin: 0;
+            letter-spacing: .3px
+        }
+
+        .menu {
+            display: flex;
+            gap: 18px;
+            align-items: center
+        }
+
+        .menu a {
+            padding: 8px 12px;
+            color: var(--muted);
+            border-radius: 10px
+        }
+
+        .menu a:hover {
+            color: var(--ink);
+            background: #eef2f1
+        }
+
+        .cta {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            background: var(--surface);
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: #fff;
+            border: none;
+            box-shadow: 0 6px 20px rgba(47, 133, 90, .35)
+        }
+
+        .btn.icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: var(--ring)
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 24px;
+            align-items: center;
+            padding: 40px 0 24px
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #e8f5eb;
+            color: #166534;
+            font-weight: 600;
+            font-size: 12px
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            line-height: 1.1;
+            margin: 12px 0
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin: 8px 0 22px
+        }
+
+        .hero-media {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .12)
+        }
+
+        .hero-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(60% 60% at 70% 30%, rgba(255, 255, 255, .0) 0, rgba(0, 0, 0, .08) 100%)
+        }
+
+        /* Section */
+        section {
+            padding: 32px 0
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px
+        }
+
+        .section-head h3 {
+            margin: 0;
+            font-size: 28px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Product grid */
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .input,
+        select {
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            min-width: 180px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eef1ee;
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s ease, box-shadow .2s ease
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, .08)
+        }
+
+        .card .pic {
+            aspect-ratio: 1 / 1;
+            background: #f0f3f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden
+        }
+
+        .card h4 {
+            margin: 12px 12px 6px;
+            font-size: 16px
+        }
+
+        .price {
+            margin: 0 12px 8px;
+            font-weight: 700
+        }
+
+        .chip {
+            margin: 0 12px 12px;
+            display: inline-block;
+            font-size: 12px;
+            color: #166534;
+            background: #dcfce7;
+            padding: 6px 10px;
+            border-radius: 999px
+        }
+
+        .card .actions {
+            margin: 10px 12px 14px;
+            display: flex;
+            gap: 8px
+        }
+
+        .small {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* Cart */
+        .cart-toggle {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 60
+        }
+
+        .drawer {
+            position: fixed;
+            inset: 0;
+            display: none
+        }
+
+        .drawer.open {
+            display: block
+        }
+
+        .drawer .backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .35)
+        }
+
+        .drawer .panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: min(440px, 100%);
+            height: 100%;
+            background: #fff;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, .15);
+            display: flex;
+            flex-direction: column
+        }
+
+        .drawer header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            border-bottom: 1px solid #eee
+        }
+
+        .drawer h4 {
+            margin: 0
+        }
+
+        .cart-list {
+            padding: 12px;
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 64px 1fr auto;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid #eef1ee;
+            border-radius: 14px
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .qty button {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            cursor: pointer
+        }
+
+        .cart-footer {
+            padding: 12px;
+            border-top: 1px solid #eee
+        }
+
+        .total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            margin: 8px 0 14px
+        }
+
+        /* Info blocks */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .info {
+            background: #fff;
+            border: 1px solid #eef1ee;
+            border-radius: 16px;
+            padding: 16px
+        }
+
+        /* Testimonials */
+        .testi {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .quote {
+            background: #fff;
+            border: 1px solid #eef1ee;
+            border-radius: 16px;
+            padding: 16px
+        }
+
+        .quote p {
+            margin: 8px 0
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 32px;
+            background: #0b1f17;
+            color: #d1fae5
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+            padding: 28px 0
+        }
+
+        footer a {
+            color: #a7f3d0
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            padding: 12px 0;
+            color: #9ca3af
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .hero .wrap {
+                grid-template-columns: 1fr
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .testi,
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            footer .container {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width: 640px) {
+            .menu {
+                display: none
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .testi,
+            .info-grid {
+                grid-template-columns: 1fr
+            }
+
+            footer .container {
+                grid-template-columns: 1fr
+            }
+
+            .hero h2 {
+                font-size: 32px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Nav -->
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo" aria-hidden="true"></div>
+                <h1>Ecoprint Artisan</h1>
+            </div>
+            <nav class="menu">
+                <a href="#produk">Produk</a>
+                <a href="#cara-pesan">Cara Pesan</a>
+                <a href="#testimoni">Testimoni</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+            <div class="cta">
+                <button class="btn icon" id="btnSearch" title="Cari produk">
+                    🔎 <span>Cari</span>
+                </button>
+                <button class="btn primary icon" id="openCart" title="Lihat keranjang">
+                    🛒 <span id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="container wrap">
+            <div>
+                <div class="badge">♻️ Ecoprint Natural • Handmade Indonesia</div>
+                <h2>Keindahan Alami, <br />Dari Daun ke Kain.</h2>
+                <p>Produk ecoprint dibuat dengan teknik pewarnaan alami menggunakan daun & bunga, setiap motif
+                    <em>unik</em> dan tidak akan sama persis. Cocok untuk hadiah maupun koleksi pribadi.</p>
+                <div class="cta">
+                    <a class="btn primary" href="#produk">Belanja Sekarang</a>
+                    <a class="btn" href="#cara-pesan">Pelajari Dulu</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img alt="Contoh produk ecoprint"
+                    src="https://images.unsplash.com/photo-1621786030484-4c0383d72d2c?q=80&w=1600&auto=format&fit=crop" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Produk -->
+    <section id="produk" class="container">
+        <div class="section-head">
+            <div>
+                <h3>Produk Unggulan</h3>
+                <div class="muted small">Stok terbatas, motif baru tiap minggu.</div>
+            </div>
+            <div class="toolbar">
+                <input id="search" class="input" placeholder="Cari: scarf, tote, warna..." />
+                <select id="category">
+                    <option value="">Semua Kategori</option>
+                    <option>Scarf</option>
+                    <option>Tote Bag</option>
+                    <option>Pouch</option>
+                </select>
+                <select id="sort">
+                    <option value="default">Urutkan</option>
+                    <option value="price-asc">Harga Terendah</option>
+                    <option value="price-desc">Harga Tertinggi</option>
+                    <option value="newest">Terbaru</option>
+                </select>
+            </div>
+        </div>
+        <div id="productGrid" class="grid"></div>
+    </section>
+
+    <!-- Info Blocks -->
+    <section class="container">
+        <div class="info-grid">
+            <div class="info">
+                <h4>🌿 Bahan Alami</h4>
+                <p class="small">Pewarna dari daun, bunga, dan kulit kayu. Ramah lingkungan & aman di kulit.</p>
+            </div>
+            <div class="info">
+                <h4>🧵 Handmade</h4>
+                <p class="small">Dibuat satu per satu dengan kontrol kualitas ketat.</p>
+            </div>
+            <div class="info">
+                <h4>🚚 Pengiriman Cepat</h4>
+                <p class="small">JNE/SiCepat/GO-SEND. Packing aman, ready dikirim dari Bandung.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Pesan / Checkout Form (for WA) -->
+    <section id="cara-pesan" class="container">
+        <div class="section-head">
+            <h3>Cara Pesan</h3>
+            <div class="muted small">Isi data di bawah untuk checkout via WhatsApp.</div>
+        </div>
+
+        <form id="checkoutForm" class="info" style="display:grid; gap:12px; max-width:720px">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+                <input class="input" name="nama" placeholder="Nama lengkap" required>
+                <input class="input" name="telp" placeholder="No. WhatsApp (62…)" required>
+            </div>
+            <input class="input" name="alamat" placeholder="Alamat lengkap" required>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+                <select class="input" name="kurir" required>
+                    <option value="JNE">JNE</option>
+                    <option value="SiCepat">SiCepat</option>
+                    <option value="AnterAja">AnterAja</option>
+                    <option value="GO-SEND">GO-SEND</option>
+                </select>
+                <select class="input" name="pembayaran" required>
+                    <option value="Transfer BCA">Transfer BCA</option>
+                    <option value="Transfer BNI">Transfer BNI</option>
+                    <option value="COD (kota tertentu)">COD (kota tertentu)</option>
+                </select>
+            </div>
+            <textarea class="input" name="catatan" rows="3" placeholder="Catatan (opsional)"></textarea>
+            <button class="btn primary icon" type="submit">📲 Checkout via WhatsApp</button>
+            <div class="small muted">Dengan menekan tombol di atas, Anda akan diarahkan ke WhatsApp dengan ringkasan
+                pesanan.</div>
+        </form>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="container">
+        <div class="section-head">
+            <h3>Testimoni Pelanggan</h3>
+            <div class="muted small">1000+ pelanggan puas.</div>
+        </div>
+        <div class="testi">
+            <div class="quote"><strong>Rani</strong>
+                <p>Motifnya unik banget dan kainnya adem. Pengiriman cepat!</p>
+            </div>
+            <div class="quote"><strong>Dewi</strong>
+                <p>Kado untuk ibu, beliau suka sekali. Real pict!</p>
+            </div>
+            <div class="quote"><strong>Nia</strong>
+                <p>Sudah repeat order 3x. Pelayanan ramah & responsif.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak / Footer -->
+    <footer id="kontak">
+        <div class="container">
+            <div>
+                <h3 style="margin:0 0 6px">Ecoprint Artisan</h3>
+                <p class="small" style="margin:0 0 12px">Handmade ecoprint by order & ready stock.</p>
+                <a class="btn icon" href="https://wa.me/6281234567890" target="_blank" rel="noopener">💬 WhatsApp:
+                    0812-3456-7890</a>
+            </div>
+            <div>
+                <h4>Menu</h4>
+                <ul style="padding-left:18px; line-height:1.9">
+                    <li><a href="#produk">Produk</a></li>
+                    <li><a href="#cara-pesan">Cara Pesan</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Alamat Workshop</h4>
+                <p class="small">Jl. Mawar No. 10, Bandung
+                    <br>IG: @ecoprint.artisan
+                    <br>Email: halo@ecoprintartisan.id
+                </p>
+            </div>
+        </div>
+        <div class="container copyright">© <span id="year"></span> Ecoprint Artisan. All rights reserved.</div>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <button class="btn primary icon cart-toggle" id="fabCart">🛒 <span id="cartCountFab">0</span></button>
+
+    <!-- Cart Drawer -->
+    <div class="drawer" id="drawer">
+        <div class="backdrop" id="backdrop"></div>
+        <div class="panel">
+            <header class="nav container" style="padding:12px 16px">
+                <h4 style="margin:0">Keranjang</h4>
+                <button class="btn" id="closeCart">Tutup</button>
+            </header>
+            <div class="cart-list" id="cartList"></div>
+            <div class="cart-footer">
+                <div class="total"><span>Total</span><span id="cartTotal">Rp0</span></div>
+                <div class="container" style="display:flex; gap:10px; padding:0 0 12px">
+                    <button class="btn" id="clearCart">Kosongkan</button>
+                    <a class="btn primary icon" id="checkoutWA" target="_blank" rel="noopener">📲 Pesan via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ======= Data Produk (contoh, ganti sesuai katalog Anda) =======
+        const PRODUCTS = [
+            { id: 'S001', name: 'Scarf Ecoprint – Awan Pagi', category: 'Scarf', price: 185000, tags: ['katun voal', 'natural dye'], image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop', created: '2025-07-22' },
+            { id: 'S002', name: 'Scarf Ecoprint – Pucuk Daun', category: 'Scarf', price: 195000, tags: ['viscose', 'limited'], image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop', created: '2025-08-05' },
+            { id: 'T101', name: 'Tote Bag Ecoprint – Bumi', category: 'Tote Bag', price: 165000, tags: ['kanvas tebal'], image: 'https://images.unsplash.com/photo-1547941126-3d5322b218b2?q=80&w=1200&auto=format&fit=crop', created: '2025-06-30' },
+            { id: 'T102', name: 'Tote Bag Ecoprint – Embun', category: 'Tote Bag', price: 175000, tags: ['kulit sintetis'], image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1200&auto=format&fit=crop',
